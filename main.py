@@ -27,35 +27,28 @@ def addMovie():
     if newAdd not in movies:
         movies.append(newAdd)
         saveWatchlist(movies)
-        print(added, "has been added to the watchlist.")
-        print()
+        print(added, "has been added to the watchlist.\n")
     else:
-        print(added, "already exists in the watchlist.")
-        print()
+        print(added, "already exists in the watchlist.\n")
 
 def viewMovies():
     movies = loadWatchlist()
     if movies:
-        print()
-        print("Your Watchlist:")
-        print()
+        print("\nYour Watchlist:\n")
         for i, entry in enumerate(movies, start = 1):
             print(f"{i}. {entry['name']} ({entry['type']})")
         print()
     else:
-        print("Your movie watchlist is empty.")
-        print()
+        print("Your movie watchlist is empty.\n")
 
 def removeMovie(movie):
     movies = loadWatchlist()
     if movie in movies:
         movies.remove(movie)
         saveWatchlist(movies)
-        print(movie, "has been removed from the watchlist.")
-        print()
+        print(movie, "has been removed from the watchlist.\n")
     else:
-        print(movie, "is not in the watchlist.")
-        print()
+        print(movie, "is not in the watchlist.\n")
     
 def renameMovie(movie):
     movies = loadWatchlist()
@@ -65,11 +58,9 @@ def renameMovie(movie):
         i = movies.index(movie)
         movies[i] = newName
         saveWatchlist(movies)
-        print(oldName, " has been updated in the watchlist to ", newName, ".", sep = "")
-        print()
+        print(oldName, " has been updated in the watchlist to \n", newName, ".", sep = "")
     else:
-        print(movie, "does not exist in the watchlist.")
-        print()
+        print(movie, "does not exist in the watchlist.\n")
 
 def updateOrder(movie):
     movies = loadWatchlist()
@@ -78,20 +69,17 @@ def updateOrder(movie):
         newPos = int(input("Enter which position you want to put the movie at: "))
         movies.insert(newPos - 1, movie)
         saveWatchlist(movies)
-        print(movie, "'s position has been updated.", sep = "")
-        print()
+        print(movie, "'s position has been updated.\n", sep = "")
     else:
         movies.append(movie)
         saveWatchlist(movies)
-        print(movie, "has been added to the watchlist.")
-        print()
+        print(movie, "has been added to the watchlist.\n")
 
 def clear():
     movies = loadWatchlist()
     movies.clear()
     saveWatchlist(movies)
-    print("Your watchlist has been cleared.")
-    print()
+    print("Your watchlist has been cleared.\n")
 
 def main():
     while True:
