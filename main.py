@@ -13,15 +13,22 @@ def saveWatchlist(watchlist):
     with open(WATCHLIST, "w") as file:
         json.dump(watchlist, file, indent = 4)
     
-def addMovie(movie):
+def addMovie():
+    added = input("Enter the movie/show you want to add to the watchlist: ")
+    valid = False
+    while not valid:
+        addedType = input("Is this a movie or show? ")
+        if addedType == "movie" or addedType == "show":
+            valid = True
     movies = loadWatchlist()
-    if movie not in movies:
-        movies.append(movie)
+    if added not in movies:
+        newAdd = {"name": added, "type": addedType}
+        movies.append(newAdd)
         saveWatchlist(movies)
-        print(movie, "has been added to the watchlist.")
+        print(added, "has been added to the watchlist.")
         print()
     else:
-        print(movie, "already exists in the watchlist.")
+        print(added, "already exists in the watchlist.")
         print()
 
 def viewMovies():
@@ -79,28 +86,29 @@ def updateOrder(movie):
 
 def main():
     while True:
-        print("Input [1] to view the watchlist")
-        print("Input [2] to add a movie to the watchlist")
-        print("Input [3] to remove a movie to the watchlist")
-        print("Input [4] to rename a movie on the watchlist")
-        print("Input [5] to update a movie's position on the watchlist")
-        print("Input [6] to exit")
+        print("Input [w] to view the watchlist")
+        print("Input [m] to view movie ranking")
+        print("Input [t] to view TV show ranking")
+        print("Input [a] to add a movie to the watchlist")
+        print("Input [d] to delete a movie from the watchlist")
+        print("Input [r] to rename a movie on the watchlist")
+        print("Input [u] to update a movie's position on the watchlist")
+        print("Input [e] to exit")
         choice = input("Enter choice: ")
-        if choice == "1":
+        if choice == "w":
             viewMovies()
-        elif choice == "2":
-            added = input("Enter the movie you want to add to the watchlist: ")
-            addMovie(added)
-        elif choice == "3":
+        elif choice == "a":
+            addMovie()
+        elif choice == "d":
             removed = input("Enter the movie you want to remove from the watchlist: ")
             removeMovie(removed)
-        elif choice == "4":
+        elif choice == "r":
             oldName = input("Enter the movie you want to rename: ")
             renameMovie(oldName)
-        elif choice == "5":
+        elif choice == "u":
             posUpdate = input("Enter the movie who's position you want to update: ")
             updateOrder(posUpdate)
-        elif choice == "6":
+        elif choice == "e":
             print()
             break
 
