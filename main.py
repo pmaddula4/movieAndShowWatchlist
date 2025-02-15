@@ -20,9 +20,11 @@ def addMovie():
         addedType = input("Is this a movie or show? ")
         if addedType == "movie" or addedType == "show":
             valid = True
+        if addedType == 'n':
+            return
     movies = loadWatchlist()
-    if added not in movies:
-        newAdd = {"name": added, "type": addedType}
+    newAdd = {"name": added, "type": addedType}
+    if newAdd not in movies:
         movies.append(newAdd)
         saveWatchlist(movies)
         print(added, "has been added to the watchlist.")
@@ -35,10 +37,10 @@ def viewMovies():
     movies = loadWatchlist()
     if movies:
         print()
-        print("Your Movie Watchlist:")
+        print("Your Watchlist:")
         print()
-        for idx, movie in enumerate(movies, start=1):
-            print(f"{idx}. {movie}")
+        for i, entry in enumerate(movies, start = 1):
+            print(f"{i}. {entry['name']} ({entry['type']})")
         print()
     else:
         print("Your movie watchlist is empty.")
@@ -84,6 +86,13 @@ def updateOrder(movie):
         print(movie, "has been added to the watchlist.")
         print()
 
+def clear():
+    movies = loadWatchlist()
+    movies.clear()
+    saveWatchlist(movies)
+    print("Your watchlist has been cleared.")
+    print()
+
 def main():
     while True:
         print("Input [w] to view the watchlist")
@@ -93,6 +102,7 @@ def main():
         print("Input [d] to delete a movie from the watchlist")
         print("Input [r] to rename a movie on the watchlist")
         print("Input [u] to update a movie's position on the watchlist")
+        print("Input [c] to clear the watchlist")
         print("Input [e] to exit")
         choice = input("Enter choice: ")
         if choice == "w":
@@ -111,5 +121,7 @@ def main():
         elif choice == "e":
             print()
             break
+        elif choice == "c":
+            clear()
 
 main()
