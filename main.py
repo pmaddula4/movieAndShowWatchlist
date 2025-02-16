@@ -21,6 +21,7 @@ def addMovie():
         if addedType == "movie" or addedType == "show":
             valid = True
         if addedType == 'n':
+            print()
             return
     movies = loadWatchlist()
     newAdd = {"name": added, "type": addedType}
@@ -39,41 +40,52 @@ def viewMovies():
             print(f"{i}. {entry['name']} ({entry['type']})")
         print()
     else:
-        print("Your movie watchlist is empty.\n")
+        print("\nYour movie watchlist is empty.\n")
 
 def removeMovie(movie):
     movies = loadWatchlist()
-    if movie in movies:
-        movies.remove(movie)
-        saveWatchlist(movies)
-        print(movie, "has been removed from the watchlist.\n")
-    else:
+    if movies:
+        for entry in movies:
+            if entry['name'] == movie:
+                movies.remove(entry)
+                saveWatchlist(movies)
+                print(movie, "has been removed from the watchlist.\n")
+                return
         print(movie, "is not in the watchlist.\n")
+    else:
+        print("Your watchlist is empty.\n")
+    
     
 def renameMovie(movie):
     movies = loadWatchlist()
-    if movie in movies:
-        oldName = movie
-        newName = input("Enter the new name of the movie: ")
-        i = movies.index(movie)
-        movies[i] = newName
-        saveWatchlist(movies)
-        print(oldName, " has been updated in the watchlist to \n", newName, ".", sep = "")
-    else:
+    if movies:
+        for entry in movies:
+            if entry['name'] == movie:
+                oldName = movie
+                newName = input("Enter the new name of the movie: ")
+                i = movies.index(movie)
+                movies[i] = newName
+                saveWatchlist(movies)
+                print(oldName, " has been updated in the watchlist to \n", newName, ".", sep = "")
+                return
         print(movie, "does not exist in the watchlist.\n")
+    else:
+        print("Your watchlist is empty.\n")
+
 
 def updateOrder(movie):
     movies = loadWatchlist()
-    if movie in movies:
-        movies.remove(movie)
-        newPos = int(input("Enter which position you want to put the movie at: "))
-        movies.insert(newPos - 1, movie)
-        saveWatchlist(movies)
-        print(movie, "'s position has been updated.\n", sep = "")
-    else:
-        movies.append(movie)
-        saveWatchlist(movies)
-        print(movie, "has been added to the watchlist.\n")
+    for entry in movies:
+        if movie in movies:
+            movies.remove(movie)
+            newPos = int(input("Enter which position you want to put the movie at: "))
+            movies.insert(newPos - 1, movie)
+            saveWatchlist(movies)
+            print(movie, "'s position has been updated.\n", sep = "")
+            return
+    movies.append(movie)
+    saveWatchlist(movies)
+    print(movie, "has been added to the watchlist.\n")
 
 def clear():
     movies = loadWatchlist()
