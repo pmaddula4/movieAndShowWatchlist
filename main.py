@@ -84,7 +84,7 @@ def addMovieShow():
             which = input("Type [w] to add to the watchlist. Type [m] to add to the movie rankings. Type [t] to add to the TV show rankings. Type [b] to go back. ")
 
 def viewMovieShow():
-    which = input("Type [w] to add to the watchlist. Type [m] to add to the movie rankings. Type [t] to add to the TV show rankings. Type [b] to go back. ")
+    which = input("Type [w] to view the watchlist. Type [m] to view the movie rankings. Type [t] to view the TV show rankings. Type [b] to go back. ")
     while True:
         if which == "w":
             list = loadWatchlist()
@@ -95,8 +95,7 @@ def viewMovieShow():
                 print()
             else:
                 print("\nYour watchlist is empty.\n")
-            which = input("Type [w] to add to the watchlist. Type [m] to add to the movie rankings. Type [t] to add to the TV show rankings. Type [b] to go back. ")
-
+            which = input("Type [w] to view the watchlist. Type [m] to view the movie rankings. Type [t] to view the TV show rankings. Type [b] to go back. ")
         elif which == "m":
             movies = loadMRankings()
             if movies:
@@ -106,7 +105,7 @@ def viewMovieShow():
                 print()
             else:
                 print("\nYour movie rankings are empty.\n")
-            which = input("Type [w] to add to the watchlist. Type [m] to add to the movie rankings. Type [t] to add to the TV show rankings. Type [b] to go back. ")
+            which = input("Type [w] to view the watchlist. Type [m] to view the movie rankings. Type [t] to view the TV show rankings. Type [b] to go back. ")
         elif which == "t":
             shows = loadSRankings()
             if shows:
@@ -116,15 +115,15 @@ def viewMovieShow():
                 print()
             else:
                 print("\nYour TV show rankings are empty.\n")
-            which = input("Type [w] to add to the watchlist. Type [m] to add to the movie rankings. Type [t] to add to the TV show rankings. Type [b] to go back. ")
+            which = input("Type [w] to view the watchlist. Type [m] to view the movie rankings. Type [t] to view the TV show rankings. Type [b] to go back. ")
         elif which == "b":
             break
         else:
             print("\nInvalid input.")
-            which = input("Type [w] to add to the watchlist. Type [m] to add to the movie rankings. Type [t] to add to the TV show rankings. Type [b] to go back. ")
+            which = input("Type [w] to view the watchlist. Type [m] to view the movie rankings. Type [t] to view the TV show rankings. Type [b] to go back. ")
 
 def removeMovieShow(input):
-    which = input("Type [w] to add to the watchlist. Type [m] to add to the movie rankings. Type [t] to add to the TV show rankings. Type [b] to go back. ")
+    which = input("Type [w] to remove from the watchlist. Type [m] to remove from the movie rankings. Type [t] to remove from the TV show rankings. Type [b] to go back. ")
     while True:
         if which == "w":
             list = loadWatchlist()
@@ -138,7 +137,7 @@ def removeMovieShow(input):
                 print(input, "is not in the watchlist.\n")
             else:
                 print("Your watchlist is empty.\n")
-            which = input("Type [w] to add to the watchlist. Type [m] to add to the movie rankings. Type [t] to add to the TV show rankings. Type [b] to go back. ")
+            which = input("Type [w] to remove from the watchlist. Type [m] to remove from the movie rankings. Type [t] to remove from the TV show rankings. Type [b] to go back. ")
         elif which == "m":
             movies = loadMRankings()
             if movies:
@@ -151,7 +150,7 @@ def removeMovieShow(input):
                 print(input, "is not in the movie rankings.\n")
             else:
                 print("Your movie rankings are empty.\n")
-            which = input("Type [w] to add to the watchlist. Type [m] to add to the movie rankings. Type [t] to add to the TV show rankings. Type [b] to go back. ")
+            which = input("Type [w] to remove from the watchlist. Type [m] to remove from the movie rankings. Type [t] to remove from the TV show rankings. Type [b] to go back. ")
         elif which == "t":
             shows = loadSRankings()
             if shows:
@@ -164,16 +163,16 @@ def removeMovieShow(input):
                 print(input, "is not in the TV show rankings.\n")
             else:
                 print("Your TV show rankings is empty.\n")
-            which = input("Type [w] to add to the watchlist. Type [m] to add to the movie rankings. Type [t] to add to the TV show rankings. Type [b] to go back. ")
+            which = input("Type [w] to remove from the watchlist. Type [m] to remove from the movie rankings. Type [t] to remove from the TV show rankings. Type [b] to go back. ")
         elif which == "b":
             break
         else:
             print("\nInvalid input.")
-            which = input("Type [w] to add to the watchlist. Type [m] to add to the movie rankings. Type [t] to add to the TV show rankings. Type [b] to go back. ")
+            which = input("Type [w] to remove from the watchlist. Type [m] to remove from the movie rankings. Type [t] to remove from the TV show rankings. Type [b] to go back. ")
     
     
 def renameMovieShow(input):
-    which = input("Type [w] to add to the watchlist. Type [m] to add to the movie rankings. Type [t] to add to the TV show rankings. Type [b] to go back. ")
+    which = input("Type [w] to rename a movie/show in the watchlist. Type [m] to rename a movie in the movie rankings. Type [t] to rename a show in the TV show rankings. Type [b] to go back. ")
     while True:
         if which == "w":
             list = loadWatchlist()
@@ -190,7 +189,7 @@ def renameMovieShow(input):
                 print(input, "does not exist in the watchlist.\n")
             else:
                 print("Your watchlist is empty.\n")
-            which = input("Type [w] to add to the watchlist. Type [m] to add to the movie rankings. Type [t] to add to the TV show rankings. Type [b] to go back. ")
+            which = input("Type [w] to rename a movie/show in the watchlist. Type [m] to rename a movie in the movie rankings. Type [t] to rename a show in the TV show rankings. Type [b] to go back. ")
         elif which == "m":
             movies = loadMRankings()
             if movies:
@@ -206,7 +205,7 @@ def renameMovieShow(input):
                 print(input, "does not exist in the movie rankings.\n")
             else:
                 print("Your movie rankings are empty.\n")
-            which = input("Type [w] to add to the watchlist. Type [m] to add to the movie rankings. Type [t] to add to the TV show rankings. Type [b] to go back. ")
+            which = input("Type [w] to rename a movie/show in the watchlist. Type [m] to rename a movie in the movie rankings. Type [t] to rename a show in the TV show rankings. Type [b] to go back. ")
         elif which == "w":
             shows = loadSRankings()
             if shows:
@@ -222,15 +221,15 @@ def renameMovieShow(input):
                 print(input, "does not exist in the TV show rankings.\n")
             else:
                 print("Your TV show rankings is empty.\n")
-            which = input("Type [w] to add to the watchlist. Type [m] to add to the movie rankings. Type [t] to add to the TV show rankings. Type [b] to go back. ")
+            which = input("Type [w] to rename a movie/show in the watchlist. Type [m] to rename a movie in the movie rankings. Type [t] to rename a show in the TV show rankings. Type [b] to go back. ")
         elif which == "b":
             break
         else:
             print("\nInvalid input.")
-            which = input("Type [w] to add to the watchlist. Type [m] to add to the movie rankings. Type [t] to add to the TV show rankings. Type [b] to go back. ")
+            which = input("Type [w] to rename a movie/show in the watchlist. Type [m] to rename a movie in the movie rankings. Type [t] to rename a show in the TV show rankings. Type [b] to go back. ")
 
 def updateOrder(input):
-    which = input("Type [w] to add to the watchlist. Type [m] to add to the movie rankings. Type [t] to add to the TV show rankings. Type [b] to go back. ")
+    which = input("Type [w] to update a movie/show's position in the watchlist. Type [m] to update a movie's position in the movie rankings. Type [t] to update a show's position in the TV show rankings. Type [b] to go back. ")
     while True:
         if which == "w":
             list = loadWatchlist()
@@ -241,12 +240,12 @@ def updateOrder(input):
                     list.insert(newPos - 1, input)
                     saveWatchlist(list)
                     print(input, "'s position has been updated.\n", sep = "")
-                    which = input("Type [w] to add to the watchlist. Type [m] to add to the movie rankings. Type [t] to add to the TV show rankings. Type [b] to go back. ")
+                    which = input("Type [w] to update a movie/show's position in the watchlist. Type [m] to update a movie's position in the movie rankings. Type [t] to update a show's position in the TV show rankings. Type [b] to go back. ")
                     return
             list.append(input)
             saveWatchlist(list)
             print(input, "was not in the watchlist, so it has been added to the watchlist.\n")
-            which = input("Type [w] to add to the watchlist. Type [m] to add to the movie rankings. Type [t] to add to the TV show rankings. Type [b] to go back. ")
+            which = input("Type [w] to update a movie/show's position in the watchlist. Type [m] to update a movie's position in the movie rankings. Type [t] to update a show's position in the TV show rankings. Type [b] to go back. ")
         elif which == "m":
             movies = loadMRankings()
             for entry in movies:
@@ -256,12 +255,12 @@ def updateOrder(input):
                     movies.insert(newPos - 1, input)
                     saveMRankings(movies)
                     print(input, "'s position has been updated.\n", sep = "")
-                    which = input("Type [w] to add to the watchlist. Type [m] to add to the movie rankings. Type [t] to add to the TV show rankings. Type [b] to go back. ")
+                    which = input("Type [w] to update a movie/show's position in the watchlist. Type [m] to update a movie's position in the movie rankings. Type [t] to update a show's position in the TV show rankings. Type [b] to go back. ")
                     return
             movies.append(input)
             saveMRankings(movies)
             print(input, "was not in the movie rankings, so it has been added to the movie rankings.\n")
-            which = input("Type [w] to add to the watchlist. Type [m] to add to the movie rankings. Type [t] to add to the TV show rankings. Type [b] to go back. ")
+            which = input("Type [w] to update a movie/show's position in the watchlist. Type [m] to update a movie's position in the movie rankings. Type [t] to update a show's position in the TV show rankings. Type [b] to go back. ")
         elif which == "t":
             shows = loadSRankings()
             for entry in shows:
@@ -271,23 +270,50 @@ def updateOrder(input):
                     shows.insert(newPos - 1, input)
                     saveSRankings(shows)
                     print(input, "'s position has been updated.\n", sep = "")
-                    which = input("Type [w] to add to the watchlist. Type [m] to add to the movie rankings. Type [t] to add to the TV show rankings. Type [b] to go back. ")
+                    which = input("Type [w] to update a movie/show's position in the watchlist. Type [m] to update a movie's position in the movie rankings. Type [t] to update a show's position in the TV show rankings. Type [b] to go back. ")
                     return
             shows.append(input)
             saveSRankings(shows)
             print(input, "was not in the TV show rankings, so it has been added to the TV show rankings.\n")
-            which = input("Type [w] to add to the watchlist. Type [m] to add to the movie rankings. Type [t] to add to the TV show rankings. Type [b] to go back. ")
+            which = input("Type [w] to update a movie/show's position in the watchlist. Type [m] to update a movie's position in the movie rankings. Type [t] to update a show's position in the TV show rankings. Type [b] to go back. ")
         elif which == "b":
             break
         else:
             print("\nInvalid input.")
-            which = input("Type [w] to add to the watchlist. Type [m] to add to the movie rankings. Type [t] to add to the TV show rankings. Type [b] to go back. ")
+            which = input("Type [w] to update a movie/show's position in the watchlist. Type [m] to update a movie's position in the movie rankings. Type [t] to update a show's position in the TV show rankings. Type [b] to go back. ")
 
 def clear():
-    movies = loadWatchlist()
-    movies.clear()
-    saveWatchlist(movies)
-    print("Your watchlist has been cleared.\n")
+    which = input("Type [w] to clear the watchlist. Type [m] to clear the movie rankings. Type [t] to clear the TV show rankings. Type [r] to clear both rankings. Type [b] to go back. ")
+    while True:
+        if which == "w":
+            list = loadWatchlist()
+            list.clear()
+            saveWatchlist(list)
+            print("Your watchlist has been cleared.\n")
+        elif which == "m":
+            movies = loadMRankings()
+            movies.clear()
+            saveMRankings(movies)
+            print("Your movie rankings have been cleared.")
+        elif which == "s":
+            shows = loadSRankings()
+            shows.clear()
+            saveSRankings(shows)
+            print("Your TV show rankings have been cleared.")
+        elif which == "r":
+            movies = loadMRankings()
+            shows = loadSRankings()
+            movies.clear()
+            shows.clear()
+            saveMRankings(movies)
+            saveSRankings(shows)
+            print("Your movie rankings have been cleared.")
+            print("Your TV show rankings have been cleared.")
+        elif which == "b":
+            break
+        else:
+            print("\nInvalid input.")
+            which = input("Type [w] to clear the watchlist. Type [m] to clear the movie rankings. Type [t] to clear the TV show rankings. Type [r] to clear both rankings. Type [b] to go back. ")
 
 def main():
     while True:
@@ -310,7 +336,7 @@ def main():
             oldName = input("Enter the movie/show you want to rename: ")
             renameMovieShow(oldName)
         elif choice == "u":
-            posUpdate = input("Enter the movie/show who's position you want to update: ")
+            posUpdate = input("Enter the movie/show whose position you want to update: ")
             updateOrder(posUpdate)
         elif choice == "e":
             print()
