@@ -272,54 +272,98 @@ def renameMovieShow():
                 print("\nInvalid input.")
                 which = input("Type [w] to rename a movie/show in the watchlist. Type [m] to rename a movie in the movie rankings. Type [t] to rename a show in the TV show rankings. Type [b] to go back. ")
 
-def updateOrder(input):
-    which = input("Type [w] to update a movie/show's position in the watchlist. Type [m] to update a movie's position in the movie rankings. Type [t] to update a show's position in the TV show rankings. Type [b] to go back. ")
+def updateOrder():
     while True:
+        which = input("Type [w] to update a movie/show's position in the watchlist. Type [m] to update a movie's position in the movie rankings. Type [t] to update a show's position in the TV show rankings. Type [b] to go back. ")
+        if which == "b":
+            print()
+            break
         if which == "w":
             list = loadWatchlist()
+            posUpdate = input("Enter the movie/show whose position you want to update: ")
+            newPos = input("Enter which position you want to put the movie/show at: ")
+            if newPos == "b":
+                print()
+                break
+            elif newPos.isdigit():
+                pos = int(newPos)
+            else:
+                print("Invalid input. Please try again.\n")
+                break
+            valid = False
             for entry in list:
-                if input in list:
-                    list.remove(input)
-                    newPos = int(input("Enter which position you want to put the movie/show at: "))
-                    list.insert(newPos - 1, input)
+                if entry['name'] == posUpdate:
+                    valid = True
+                    typeO = entry['type']
+                    list.remove(entry)
+                    newAdd = {"name": posUpdate, "type": typeO}
+                    list.insert(pos - 1, newAdd)
                     saveWatchlist(list)
-                    print(input, "'s position has been updated.\n", sep = "")
-                    which = input("Type [w] to update a movie/show's position in the watchlist. Type [m] to update a movie's position in the movie rankings. Type [t] to update a show's position in the TV show rankings. Type [b] to go back. ")
-                    return
-            list.append(input)
-            saveWatchlist(list)
-            print(input, "was not in the watchlist, so it has been added to the watchlist.\n")
-            which = input("Type [w] to update a movie/show's position in the watchlist. Type [m] to update a movie's position in the movie rankings. Type [t] to update a show's position in the TV show rankings. Type [b] to go back. ")
+                    print(posUpdate, "'s position has been updated.\n", sep = "")
+                    break
+            if not valid:
+                typeValid = False
+                while not typeValid:
+                    addedType = input("Is this a movie or show? ")
+                    if addedType == "movie" or addedType == "m" or addedType == "show" or addedType == "s":
+                        typeValid = True
+                if addedType == "m":
+                    addedType = "movie"
+                elif addedType == "s":
+                    addedType = "show"
+                list.append({"name": posUpdate, "type": addedType})
+                saveWatchlist(list)
+                print(posUpdate, "was not in the watchlist, so it has been added to the watchlist.\n")
         elif which == "m":
             movies = loadMRankings()
+            posUpdate = input("Enter the movie/show whose position you want to update: ")
+            newPos = input("Enter which position you want to put the movie at: ")
+            if newPos == "b":
+                print()
+                break
+            elif newPos.isdigit():
+                pos = int(newPos)
+            else:
+                print("Invalid input. Please try again.\n")
+                break
+            valid = False
             for entry in movies:
-                if input in movies:
-                    movies.remove(input)
-                    newPos = int(input("Enter which position you want to put the movie at: "))
-                    movies.insert(newPos - 1, input)
+                if posUpdate in movies:
+                    valid = True
+                    movies.remove(posUpdate)
+                    movies.insert(pos - 1, posUpdate)
                     saveMRankings(movies)
-                    print(input, "'s position has been updated.\n", sep = "")
-                    which = input("Type [w] to update a movie/show's position in the watchlist. Type [m] to update a movie's position in the movie rankings. Type [t] to update a show's position in the TV show rankings. Type [b] to go back. ")
-                    return
-            movies.append(input)
-            saveMRankings(movies)
-            print(input, "was not in the movie rankings, so it has been added to the movie rankings.\n")
-            which = input("Type [w] to update a movie/show's position in the watchlist. Type [m] to update a movie's position in the movie rankings. Type [t] to update a show's position in the TV show rankings. Type [b] to go back. ")
+                    print(posUpdate, "'s position has been updated.\n", sep = "")
+                    break
+            if not valid:
+                movies.append(posUpdate)
+                saveMRankings(movies)
+                print(posUpdate, "was not in the movie rankings, so it has been added to the movie rankings.\n")
         elif which == "t":
             shows = loadSRankings()
+            posUpdate = input("Enter the movie/show whose position you want to update: ")
+            newPos = int(input("Enter which position you want to put the show at: "))
+            if newPos == "b":
+                print()
+                break
+            elif newPos.isdigit():
+                pos = int(newPos)
+            else:
+                print("Invalid input. Please try again.\n")
+                break
+            valid = False
             for entry in shows:
-                if input in shows:
-                    shows.remove(input)
-                    newPos = int(input("Enter which position you want to put the show at: "))
-                    shows.insert(newPos - 1, input)
+                if posUpdate in shows:
+                    valid = True
+                    shows.remove(posUpdate)
+                    shows.insert(pos - 1, posUpdate)
                     saveSRankings(shows)
-                    print(input, "'s position has been updated.\n", sep = "")
-                    which = input("Type [w] to update a movie/show's position in the watchlist. Type [m] to update a movie's position in the movie rankings. Type [t] to update a show's position in the TV show rankings. Type [b] to go back. ")
-                    return
-            shows.append(input)
-            saveSRankings(shows)
-            print(input, "was not in the TV show rankings, so it has been added to the TV show rankings.\n")
-            which = input("Type [w] to update a movie/show's position in the watchlist. Type [m] to update a movie's position in the movie rankings. Type [t] to update a show's position in the TV show rankings. Type [b] to go back. ")
+                    print(posUpdate, "'s position has been updated.\n", sep = "")
+                    break
+            if not valid:
+                shows.append(posUpdate)
+                saveSRankings(shows)
+                print(posUpdate, "was not in the TV show rankings, so it has been added to the TV show rankings.\n")
         elif which == "b":
             print()
             break
@@ -369,7 +413,7 @@ def main():
         print("Input [r] to rename a movie on the watchlist/rankings")
         print("Input [u] to update a movie's position on the watchlist/rankings")
         print("Input [c] to clear the watchlist/rankings")
-        print("Input [e] to exit")
+        print("Input [x] to exit")
         choice = input("Enter choice: ")
         if choice == "v":
             viewMovieShow()
@@ -380,9 +424,8 @@ def main():
         elif choice == "r":
             renameMovieShow()
         elif choice == "u":
-            posUpdate = input("Enter the movie/show whose position you want to update: ")
-            updateOrder(posUpdate)
-        elif choice == "e":
+            updateOrder()
+        elif choice == "x":
             print()
             break
         elif choice == "c":
