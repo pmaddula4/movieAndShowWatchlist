@@ -1,6 +1,46 @@
 [
     {
-        "name": "Captain America: The First Avenger",
+        "name": "Iron Man",
         "type": "movie"
+    },
+    {
+        "name": "Incredible Hulk",
+        "type": "movie"
+    },
+    {
+        "name": "Iron Man 2",
+        "type": "movie"
+    },
+    {
+        "name": "Thor",
+        "type": "movie"
+    },
+    {
+        "name": "The Avengers",
+        "type": "movie"
+    },
+    {
+        "name": "Thor: The Dark World",
+        "type": "movie"
+    },
+    {
+        "name": "Guardians of the Galaxy",
+        "type": "movie"
+    },
+    {
+        "name": "Captain America: The Winter Soldier",
+        "type": "movie"
+    },
+    {
+        "name": "Iron Man 3",
+        "type": "movie"
+    },
+    {
+        "name": "Guardians of the Galaxy 2",
+        "type": "movie"
+    },
+    {
+        "name": "I am Groot",
+        "type": "show"
     }
 ]
