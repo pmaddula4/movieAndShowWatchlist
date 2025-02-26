@@ -36,63 +36,67 @@ def saveSRankings(ranking):
         json.dump(ranking, file, indent = 4)
     
 def addMovieShow():
-    which = input("Type [w] to add to the watchlist. Type [m] to add to the movie rankings. Type [t] to add to the TV show rankings. Type [b] to go back. ")
     while True:
-        if which == "w":
-            added = input("Enter the movie/show you want to add to the watchlist: ")
-            if added == "b":
-                print()
-                break
-            valid = False
-            while not valid:
-                addedType = input("Is this a movie or show? ")
-                if addedType == "movie" or addedType == "m" or addedType == "show" or addedType == "s":
-                    valid = True
-                if addedType == 'b':
-                    print()
-                    return
-            movies = loadWatchlist()
-            if addedType == "m":
-                addedType = "movie"
-            elif addedType == "s":
-                addedType = "show"
-            newAdd = {"name": added, "type": addedType}
-            if newAdd not in movies:
-                movies.append(newAdd)
-                saveWatchlist(movies)
-                print(added, "has been added to the watchlist.\n")
-            else:
-                print(added, "already exists in the watchlist.\n")
-        elif which == "m":
-            added = input("Enter the movie you want to add to the rankings: ")
-            if added == "b":
-                print()
-                break
-            mRank = loadMRankings()
-            if added not in mRank:
-                mRank.append(added)
-                saveMRankings(mRank)
-                print(added, "has been added to the movie rankings.\n")
-            else:
-                print(added, "already exists in the movie rankings.\n")
-        elif which == "t":
-            if added == "b":
-                print()
-                break
-            added = input("Enter the show you want to add to the rankings: ")
-            sRank = loadSRankings()
-            if added not in sRank:
-                sRank.append(added)
-                saveMRankings(sRank)
-                print(added, "has been added to the show rankings.\n")
-            else:
-                print(added, "already exists in the show rankings.\n")
-        elif which == "b":
+        which = input("Type [w] to add to the watchlist. Type [m] to add to the movie rankings. Type [t] to add to the TV show rankings. Type [b] to go back. ")
+        if which == "b":
             print()
             break
-        else:
-            print("\nInvalid input.")
-            which = input("Type [w] to add to the watchlist. Type [m] to add to the movie rankings. Type [t] to add to the TV show rankings. Type [b] to go back. ")
+        while True:
+            if which == "w":
+                added = input("Enter the movie/show you want to add to the watchlist: ")
+                if added == "b":
+                    print()
+                    break
+                valid = False
+                while not valid:
+                    addedType = input("Is this a movie or show? ")
+                    if addedType == "movie" or addedType == "m" or addedType == "show" or addedType == "s":
+                        valid = True
+                    if addedType == 'b':
+                        print()
+                        return
+                movies = loadWatchlist()
+                if addedType == "m":
+                    addedType = "movie"
+                elif addedType == "s":
+                    addedType = "show"
+                newAdd = {"name": added, "type": addedType}
+                if newAdd not in movies:
+                    movies.append(newAdd)
+                    saveWatchlist(movies)
+                    print(added, "has been added to the watchlist.\n")
+                else:
+                    print(added, "already exists in the watchlist.\n")
+            elif which == "m":
+                added = input("Enter the movie you want to add to the rankings: ")
+                if added == "b":
+                    print()
+                    break
+                mRank = loadMRankings()
+                if added not in mRank:
+                    mRank.append(added)
+                    saveMRankings(mRank)
+                    print(added, "has been added to the movie rankings.\n")
+                else:
+                    print(added, "already exists in the movie rankings.\n")
+            elif which == "t":
+                if added == "b":
+                    print()
+                    break
+                added = input("Enter the show you want to add to the rankings: ")
+                sRank = loadSRankings()
+                if added not in sRank:
+                    sRank.append(added)
+                    saveMRankings(sRank)
+                    print(added, "has been added to the show rankings.\n")
+                else:
+                    print(added, "already exists in the show rankings.\n")
+            elif which == "b":
+                print()
+                break
+            else:
+                print("\nInvalid input.")
+                which = input("Type [w] to add to the watchlist. Type [m] to add to the movie rankings. Type [t] to add to the TV show rankings. Type [b] to go back. ")
 
 def viewMovieShow():
     which = input("Type [w] to view the watchlist. Type [m] to view the movie rankings. Type [t] to view the TV show rankings. Type [b] to go back. ")
@@ -135,56 +139,66 @@ def viewMovieShow():
             which = input("Type [w] to view the watchlist. Type [m] to view the movie rankings. Type [t] to view the TV show rankings. Type [b] to go back. ")
 
 def removeMovieShow():
-    which = input("Type [w] to remove from the watchlist. Type [m] to remove from the movie rankings. Type [t] to remove from the TV show rankings. Type [b] to go back. ")
     while True:
-        if which == "w":
-            listRemove = input("Enter the movie/show you want to remove from the watchlist: ")
-            list = loadWatchlist()
-            if list:
-                for entry in list:
-                    if entry['name'] == listRemove:
-                        list.remove(entry)
-                        saveWatchlist(list)
-                        print(listRemove, "has been removed from the watchlist.\n")
-                        return
-                print(listRemove, "is not in the watchlist.\n")
-            else:
-                print("Your watchlist is empty.\n")
-            which = input("Type [w] to remove from the watchlist. Type [m] to remove from the movie rankings. Type [t] to remove from the TV show rankings. Type [b] to go back. ")
-        elif which == "m":
-            movieRemove = input("Enter the movie you want to remove from the movie rankings: ")
-            movies = loadMRankings()
-            if movies:
-                for entry in movies:
-                    if entry['name'] == movieRemove:
-                        movies.remove(entry)
-                        saveMRankings(movies)
-                        print(movieRemove, "has been removed from the movie rankings.\n")
-                        return
-                print(movieRemove, "is not in the movie rankings.\n")
-            else:
-                print("Your movie rankings are empty.\n")
-            which = input("Type [w] to remove from the watchlist. Type [m] to remove from the movie rankings. Type [t] to remove from the TV show rankings. Type [b] to go back. ")
-        elif which == "t":
-            showRemove = input("Enter the show you want to remove from the show rankings: ")
-            shows = loadSRankings()
-            if shows:
-                for entry in shows:
-                    if entry['name'] == showRemove:
-                        shows.remove(entry)
-                        saveSRankings(shows)
-                        print(showRemove, "has been removed from the TV show rankings.\n")
-                        return
-                print(showRemove, "is not in the TV show rankings.\n")
-            else:
-                print("Your TV show rankings is empty.\n")
-            which = input("Type [w] to remove from the watchlist. Type [m] to remove from the movie rankings. Type [t] to remove from the TV show rankings. Type [b] to go back. ")
-        elif which == "b":
+        which = input("Type [w] to remove from the watchlist. Type [m] to remove from the movie rankings. Type [t] to remove from the TV show rankings. Type [b] to go back. ")
+        if which == "b":
             print()
             break
-        else:
-            print("\nInvalid input.")
-            which = input("Type [w] to remove from the watchlist. Type [m] to remove from the movie rankings. Type [t] to remove from the TV show rankings. Type [b] to go back. ")
+        while True:
+            if which == "w":
+                listRemove = input("Enter the movie/show you want to remove from the watchlist: ")
+                if listRemove == "b":
+                    print()
+                    break
+                list = loadWatchlist()
+                if list:
+                    for entry in list:
+                        if entry['name'] == listRemove:
+                            list.remove(entry)
+                            saveWatchlist(list)
+                            print(listRemove, "has been removed from the watchlist.\n")
+                            return
+                    print(listRemove, "is not in the watchlist.\n")
+                else:
+                    print("Your watchlist is empty.\n")
+            elif which == "m":
+                movieRemove = input("Enter the movie you want to remove from the movie rankings: ")
+                if movieRemove == "b":
+                    print()
+                    break
+                movies = loadMRankings()
+                if movies:
+                    for entry in movies:
+                        if entry['name'] == movieRemove:
+                            movies.remove(entry)
+                            saveMRankings(movies)
+                            print(movieRemove, "has been removed from the movie rankings.\n")
+                            return
+                    print(movieRemove, "is not in the movie rankings.\n")
+                else:
+                    print("Your movie rankings are empty.\n")
+            elif which == "t":
+                showRemove = input("Enter the show you want to remove from the show rankings: ")
+                if showRemove == "b":
+                    print()
+                    break
+                shows = loadSRankings()
+                if shows:
+                    for entry in shows:
+                        if entry['name'] == showRemove:
+                            shows.remove(entry)
+                            saveSRankings(shows)
+                            print(showRemove, "has been removed from the TV show rankings.\n")
+                            return
+                    print(showRemove, "is not in the TV show rankings.\n")
+                else:
+                    print("Your TV show rankings is empty.\n")
+            elif which == "b":
+                print()
+                break
+            else:
+                print("\nInvalid input.")
+                which = input("Type [w] to remove from the watchlist. Type [m] to remove from the movie rankings. Type [t] to remove from the TV show rankings. Type [b] to go back. ")
     
     
 def renameMovieShow():
