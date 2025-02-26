@@ -40,7 +40,159 @@
         "type": "movie"
     },
     {
-        "name": "I am Groot",
+        "name": "I am Groot S1",
         "type": "show"
+    },
+    {
+        "name": "I am Groot S2",
+        "type": "show"
+    },
+    {
+        "name": "Avengers: Age of Ultron",
+        "type": "movie"
+    },
+    {
+        "name": "Doctor Strange",
+        "type": "movie"
+    },
+    {
+        "name": "Ant-Man",
+        "type": "movie"
+    },
+    {
+        "name": "Captain America: Civil War",
+        "type": "movie"
+    },
+    {
+        "name": "Black Widow",
+        "type": "movie"
+    },
+    {
+        "name": "Black Panther",
+        "type": "movie"
+    },
+    {
+        "name": "Spider-Man: Homecoming",
+        "type": "movie"
+    },
+    {
+        "name": "Ant-Man & the Wasp",
+        "type": "movie"
+    },
+    {
+        "name": "Thor: Ragnarok",
+        "type": "movie"
+    },
+    {
+        "name": "Avengers: Infinity War",
+        "type": "movie"
+    },
+    {
+        "name": "Captain Marvel",
+        "type": "movie"
+    },
+    {
+        "name": "Avengers: Endgame",
+        "type": "movie"
+    },
+    {
+        "name": "WandaVision S1",
+        "type": "show"
+    },
+    {
+        "name": "Falcon & the Winter Soldier",
+        "type": "movie"
+    },
+    {
+        "name": "Spider-Man: Far from Home",
+        "type": "movie"
+    },
+    {
+        "name": "Loki S1",
+        "type": "show"
+    },
+    {
+        "name": "What If? S1",
+        "type": "show"
+    },
+    {
+        "name": "What If? S2",
+        "type": "show"
+    },
+    {
+        "name": "What If? S3",
+        "type": "show"
+    },
+    {
+        "name": "Loki S2",
+        "type": "show"
+    },
+    {
+        "name": "Spider-Man: No Way Home",
+        "type": "movie"
+    },
+    {
+        "name": "Hawkeye S1",
+        "type": "show"
+    },
+    {
+        "name": "Echo S1",
+        "type": "show"
+    },
+    {
+        "name": "Guardians of the Galaxy Holiday Special",
+        "type": "movie"
+    },
+    {
+        "name": "Thor: Love and Thunder",
+        "type": "movie"
+    },
+    {
+        "name": "Guardians of the Galaxy, Vol. 3",
+        "type": "movie"
+    },
+    {
+        "name": "Black Panther: Wakanda Forever",
+        "type": "movie"
+    },
+    {
+        "name": "Moon Knight S1",
+        "type": "show"
+    },
+    {
+        "name": "Shang-Chi & the Legend of the Ten Rings",
+        "type": "movie"
+    },
+    {
+        "name": "Dr. Strange & the Multiverse of Madness",
+        "type": "movie"
+    },
+    {
+        "name": "Agatha All Along S1",
+        "type": "movie"
+    },
+    {
+        "name": "Eternals",
+        "type": "movie"
+    },
+    {
+        "name": "She-Hulk: Attorney at Law S1",
+        "type": "show"
+    },
+    {
+        "name": "Miss Marvel S1",
+        "type": "show"
+    },
+    {
+        "name": "Secret Invasion S1",
+        "type": "show"
+    },
+    {
+        "name": "The Marvels",
+        "type": "movie"
+    },
+    {
+        "name": "Captain America: Brave New World",
+        "type": "movie"
     }
 ]
