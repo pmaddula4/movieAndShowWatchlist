@@ -202,71 +202,75 @@ def removeMovieShow():
     
     
 def renameMovieShow():
-    which = input("Type [w] to rename a movie/show in the watchlist. Type [m] to rename a movie in the movie rankings. Type [t] to rename a show in the TV show rankings. Type [b] to go back. ")
     while True:
-        if which == "w":
-            oldName = input("Enter the movie/show you want to rename: ")
-            if oldName == "b":
-                print()
-                break
-            list = loadWatchlist()
-            if list:
-                for i, entry in enumerate(list):
-                    if entry['name'] == oldName:
-                        typeO = entry['type']
-                        oldNameX = oldName
-                        newName = input("Enter the new name of the movie/show: ")
-                        list[i] = {"name": newName, "type": typeO}
-                        saveWatchlist(list)
-                        print(oldNameX, " has been updated in the watchlist to ", newName, ".\n", sep = "")
-                        return
-                print(oldName, "does not exist in the watchlist.\n")
-            else:
-                print("Your watchlist is empty.\n")
-        elif which == "m":
-            oldName = input("Enter the movie you want to rename: ")
-            if oldName == "b":
-                print()
-                break
-            movies = loadMRankings()
-            if movies:
-                for entry in movies:
-                    if entry['name'] == input:
-                        oldName = input
-                        newName = input("Enter the new name of the movie/show: ")
-                        i = movies.index(input)
-                        movies[i] = newName
-                        saveMRankings(movies)
-                        print(oldName, " has been updated in the movie rankings to \n", newName, ".", sep = "")
-                        return
-                print(input, "does not exist in the movie rankings.\n")
-            else:
-                print("Your movie rankings are empty.\n")
-        elif which == "w":
-            oldName = input("Enter the show you want to rename: ")
-            if oldName == "b":
-                print()
-                break
-            shows = loadSRankings()
-            if shows:
-                for entry in shows:
-                    if entry['name'] == input:
-                        oldName = input
-                        newName = input("Enter the new name of the show: ")
-                        i = shows.index(input)
-                        shows[i] = newName
-                        saveSRankings(shows)
-                        print(oldName, " has been updated in the TV show rankings to \n", newName, ".", sep = "")
-                        return
-                print(input, "does not exist in the TV show rankings.\n")
-            else:
-                print("Your TV show rankings is empty.\n")
-        elif which == "b":
+        which = input("Type [w] to rename a movie/show in the watchlist. Type [m] to rename a movie in the movie rankings. Type [t] to rename a show in the TV show rankings. Type [b] to go back. ")
+        if which == "b":
             print()
             break
-        else:
-            print("\nInvalid input.")
-            which = input("Type [w] to rename a movie/show in the watchlist. Type [m] to rename a movie in the movie rankings. Type [t] to rename a show in the TV show rankings. Type [b] to go back. ")
+        while True:
+            if which == "w":
+                oldName = input("Enter the movie/show you want to rename: ")
+                if oldName == "b":
+                    print()
+                    break
+                list = loadWatchlist()
+                if list:
+                    for i, entry in enumerate(list):
+                        if entry['name'] == oldName:
+                            typeO = entry['type']
+                            oldNameX = oldName
+                            newName = input("Enter the new name of the movie/show: ")
+                            list[i] = {"name": newName, "type": typeO}
+                            saveWatchlist(list)
+                            print(oldNameX, " has been updated in the watchlist to ", newName, ".\n", sep = "")
+                            return
+                    print(oldName, "does not exist in the watchlist.\n")
+                else:
+                    print("Your watchlist is empty.\n")
+            elif which == "m":
+                oldName = input("Enter the movie you want to rename: ")
+                if oldName == "b":
+                    print()
+                    break
+                movies = loadMRankings()
+                if movies:
+                    for entry in movies:
+                        if entry['name'] == input:
+                            oldName = input
+                            newName = input("Enter the new name of the movie/show: ")
+                            i = movies.index(input)
+                            movies[i] = newName
+                            saveMRankings(movies)
+                            print(oldName, " has been updated in the movie rankings to \n", newName, ".", sep = "")
+                            return
+                    print(input, "does not exist in the movie rankings.\n")
+                else:
+                    print("Your movie rankings are empty.\n")
+            elif which == "w":
+                oldName = input("Enter the show you want to rename: ")
+                if oldName == "b":
+                    print()
+                    break
+                shows = loadSRankings()
+                if shows:
+                    for entry in shows:
+                        if entry['name'] == input:
+                            oldName = input
+                            newName = input("Enter the new name of the show: ")
+                            i = shows.index(input)
+                            shows[i] = newName
+                            saveSRankings(shows)
+                            print(oldName, " has been updated in the TV show rankings to \n", newName, ".", sep = "")
+                            return
+                    print(input, "does not exist in the TV show rankings.\n")
+                else:
+                    print("Your TV show rankings is empty.\n")
+            elif which == "b":
+                print()
+                break
+            else:
+                print("\nInvalid input.")
+                which = input("Type [w] to rename a movie/show in the watchlist. Type [m] to rename a movie in the movie rankings. Type [t] to rename a show in the TV show rankings. Type [b] to go back. ")
 
 def updateOrder(input):
     which = input("Type [w] to update a movie/show's position in the watchlist. Type [m] to update a movie's position in the movie rankings. Type [t] to update a show's position in the TV show rankings. Type [b] to go back. ")
